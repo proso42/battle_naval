@@ -39,7 +39,7 @@ static char *name_boat(int i)
 
 static void init(t_data *info)
 {
-  int   i = 0;
+  int     i = 0;
 
   ft_bzero(info->player_map, 132);
   while (i < 10)
@@ -48,6 +48,11 @@ static void init(t_data *info)
     i++;
   }
   i = 2;
+  info->player_small_boat = (t_boat*)malloc(sizeof(t_boat));
+  info->player_boat = (t_boat*)malloc(sizeof(t_boat));
+  info->player_submarine = (t_boat*)malloc(sizeof(t_boat));
+  info->player_cruiser = (t_boat*)malloc(sizeof(t_boat));
+  info->player_aircraft = (t_boat*)malloc(sizeof(t_boat));
   while (i < 7)
   {
     print_map(info->player_map);

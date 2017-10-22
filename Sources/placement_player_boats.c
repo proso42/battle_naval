@@ -1,17 +1,42 @@
 #include "../Includes/battle.h"
 
+static void set_boat(t_data *info, int x, int y, int size)
+{
+  t_boat      *boat;
+  static int  i = 0;
+
+  if (size == 2)
+    boat = info->player_small_boat;
+  else if (size == 3)
+    boat = info->player_boat;
+  else if (size == 4)
+    boat = info->player_submarine;
+  else if (size == 5)
+    boat = info->player_cruiser;
+  else
+    boat = info->player_aircraft;
+  if (!boat->slot[0])
+    ft_memset(boat->slot, 'O', size);
+  boat->x[i] = x;
+  boat->y[i] = y;
+  i++;
+}
+
 static void fill_map(t_data *info, int dir, char coord[4], int size)
 {
   int   x;
   int   y;
+  int   i;
 
+  i = size;
   x = coord[0] - 65;
   if (!coord[2])
     y = coord[1] - 49;
   else
     y = 9;
-  while (size)
+  while (i)
   {
+    set_boat(info, x, y, size);
     info->player_map[y][x] = 'O';
     if (dir == 1)
       y--;
@@ -21,7 +46,7 @@ static void fill_map(t_data *info, int dir, char coord[4], int size)
       y++;
     else
       x--;
-    size--;
+    i--;
   }
 }
 

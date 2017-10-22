@@ -15,6 +15,10 @@ typedef struct  s_data
 {
         char    player_map[11][11];
         t_boat  *player_small_boat;
+        t_boat  *player_boat;
+        t_boat  *player_submarine;
+        t_boat  *player_cruiser;
+        t_boat  *player_aircraft;
 }               t_data;
 
 int   placement_player_boats(t_data *info, int size);
