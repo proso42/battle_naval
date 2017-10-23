@@ -6,15 +6,18 @@
 #    By: proso <proso@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/27 13:41:20 by proso             #+#    #+#              #
-#    Updated: 2017/10/21 23:35:46 by caroleroso       ###   ########.fr        #
+#    Updated: 2017/10/23 03:50:38 by caroleroso       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = naval_battle
 
 SRC = Sources/checker.c\
+ 			Sources/ia_checker.c\
 			Sources/main.c\
-			Sources/placement_player_boats.c
+			Sources/placement_ia_boats.c\
+			Sources/placement_player_boats.c\
+			Sources/put_boats.c
 
 CC = gcc
 

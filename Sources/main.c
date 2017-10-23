@@ -1,6 +1,6 @@
 #include "../Includes/battle.h"
 
-static void print_map(char map[11][11])
+void print_map(char map[11][11])
 {
     int   i = 0;
     int   j = 0;
@@ -23,18 +23,16 @@ static void print_map(char map[11][11])
     }
 }
 
-static char *name_boat(int i)
+static void init_ia_map(t_data *info)
 {
-  if (i == 2)
-    return ("petit bateau");
-  else if (i == 3)
-    return ("bateau");
-  else if (i == 4)
-    return ("sous-marin");
-  else if (i == 5)
-    return ("croiseur");
-  else
-    return ("porte-avion");
+  int   i;
+
+  i = 0;
+  while (i < 10)
+  {
+    ft_memset(info->ia_map[i], '_', 10);
+    i++;
+  }
 }
 
 static void init(t_data *info)
@@ -47,27 +45,31 @@ static void init(t_data *info)
     ft_memset(info->player_map[i], '_', 10);
     i++;
   }
-  i = 2;
+  ft_bzero(info->ia_map, 132);
+  init_ia_map(info);
   info->player_small_boat = (t_boat*)malloc(sizeof(t_boat));
   info->player_boat = (t_boat*)malloc(sizeof(t_boat));
   info->player_submarine = (t_boat*)malloc(sizeof(t_boat));
   info->player_cruiser = (t_boat*)malloc(sizeof(t_boat));
   info->player_aircraft = (t_boat*)malloc(sizeof(t_boat));
-  while (i < 7)
-  {
-    print_map(info->player_map);
-    ft_printf("{bold}{green}Placement du %s{res}\n", name_boat(i));
-    placement_player_boats(info, i);
-    system("clear");
-    i++;
-  }
-  print_map(info->player_map);
+  info->ia_small_boat = (t_boat*)malloc(sizeof(t_boat));
+  info->ia_boat = (t_boat*)malloc(sizeof(t_boat));
+  info->ia_submarine = (t_boat*)malloc(sizeof(t_boat));
+  info->ia_cruiser = (t_boat*)malloc(sizeof(t_boat));
+  info->ia_aircraft = (t_boat*)malloc(sizeof(t_boat));
+  put_boats(info);
 }
 
 int         main()
 {
   t_data  info;
 
+  srand(time(NULL));
   init(&info);
+  system("clear");
+  ft_printf("Player Map\n");
+  print_map(info.player_map);
+  ft_printf("IA Map\n");
+  print_map(info.ia_map);
   return 0;
 }
