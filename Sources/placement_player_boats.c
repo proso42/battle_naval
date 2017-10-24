@@ -6,9 +6,9 @@ static void set_boat(t_data *info, int x, int y, int size)
   static int  i = 0;
 
   if (size == 2)
-    boat = info->player_small_boat;
+    boat = info->player_spy_ship;
   else if (size == 3)
-    boat = info->player_boat;
+    boat = info->player_destroyer;
   else if (size == 4)
     boat = info->player_submarine;
   else if (size == 5)

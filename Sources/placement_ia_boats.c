@@ -6,9 +6,9 @@ static void set_boat(t_data *info, int x, int y, int size)
   static int  i = 0;
 
   if (size == 2)
-    boat = info->ia_small_boat;
+    boat = info->ia_spy_ship;
   else if (size == 3)
-    boat = info->ia_boat;
+    boat = info->ia_destroyer;
   else if (size == 4)
     boat = info->ia_submarine;
   else if (size == 5)
@@ -16,7 +16,10 @@ static void set_boat(t_data *info, int x, int y, int size)
   else
     boat = info->ia_aircraft;
   if (!boat->slot[0])
+  {
+    i = 0;
     ft_memset(boat->slot, 'O', size);
+  }
   boat->x[i] = x;
   boat->y[i] = y;
   i++;

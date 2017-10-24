@@ -21,7 +21,7 @@ void  put_boats(t_data *info)
   i = 2;
   while (i < 7)
   {
-    print_map(info->player_map);
+    print_map(info, "player", info->player_map);
     ft_printf("{bold}{green}Placement du %s{res}\n", name_boat(i));
     placement_player_boats(info, i);
     system("clear");

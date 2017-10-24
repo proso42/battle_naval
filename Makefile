@@ -6,17 +6,25 @@
 #    By: proso <proso@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/27 13:41:20 by proso             #+#    #+#              #
-#    Updated: 2017/10/23 03:50:38 by caroleroso       ###   ########.fr        #
+#    Updated: 2017/10/25 00:21:36 by caroleroso       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = naval_battle
 
-SRC = Sources/checker.c\
+SRC = Sources/add_ia_cross.c\
+			Sources/add_player_cross.c\
+			Sources/check_boats.c\
+			Sources/checker.c\
+			Sources/game.c\
  			Sources/ia_checker.c\
+			Sources/ia_shoot.c\
+			Sources/is_victory.c\
 			Sources/main.c\
 			Sources/placement_ia_boats.c\
 			Sources/placement_player_boats.c\
+			Sources/player_shoot.c\
+			Sources/print_map.c\
 			Sources/put_boats.c
 
 CC = gcc
